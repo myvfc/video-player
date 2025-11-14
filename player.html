@@ -72,4 +72,17 @@
   <script>
     // Read the video ID from the URL's ?v= parameter
     const params = new URLSearchParams(window.location.search);
-    const vid =
+    const vid = params.get("v");
+
+    // If no ID is given, use a fallback demo video
+    const videoId = vid || "dQw4w9WgXcQ";
+
+    // Build the YouTube embed URL
+    const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+
+    // Set the iframe's source
+    document.getElementById("ytFrame").src = embedUrl;
+  </script>
+</body>
+</html>
+
